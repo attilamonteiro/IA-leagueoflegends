@@ -29,7 +29,7 @@ const state = {
     characters: [],
   },
   view: {
-    response: document.querySelector(".text-reponse"),
+    response: document.querySelector(".text-response"),
     question: document.querySelector("#text-request"),
     avatar: document.getElementById("avatar"),
     carousel: document.getElementById("carousel-cards-content"),
@@ -42,6 +42,7 @@ async function main() {
   await loadCarousel();
 }
 
+// code
 async function loadCharacters() {
   const data = await apiService.getChampions();
   state.values.characters = data;
@@ -106,16 +107,14 @@ async function getRandomQuote() {
 }
 
 async function loadCarousel() {
-  const carousel = state.view.carousel;
-  carousel.classList.add("timeline-carousel"); // Adicione a classe do carrossel aqui, se necessário
-
-  // Adicione o código para inicializar o carrossel aqui, usando métodos padrão do JavaScript
-  // Por exemplo:
-  // carousel.style.display = 'block'; // Exemplo de configuração CSS
-  // carousel.style.width = '100%'; // Exemplo de configuração CSS
-  // ...
-
-  // Adicione estilos CSS necessários para o carrossel aqui, se necessário
+  const carouselItems = document.querySelectorAll(".timeline-carousel__item");
+  carouselItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      const id = item.getAttribute("data-id");
+      const imageUrl = item.getAttribute("data-image-url");
+      onChangeCharacterSelected(id, imageUrl);
+    });
+  });
 }
 
 main();
