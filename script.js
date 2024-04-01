@@ -1,6 +1,6 @@
 const routes = {
-    champions: "http://sdw24.us-east-1.elasticbeanstalk.com/lol-api/champions",
-    ask: "http://sdw24.us-east-1.elasticbeanstalk.com/lol-api/champions/{id}/ask",
+    champions: "https://sdw24.us-east-1.elasticbeanstalk.com/lol-api/champions",
+    ask: "https://sdw24.us-east-1.elasticbeanstalk.com/lol-api/champions/{id}/ask",
   };
   
   const apiService = {
